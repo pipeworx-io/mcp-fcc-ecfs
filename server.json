@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/fcc-ecfs",
   "title": "Fcc Ecfs",
   "description": "MCP server for fcc-ecfs",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "websiteUrl": "https://pipeworx.io/packs/fcc-ecfs",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-fcc-ecfs",

@@ -2,7 +2,7 @@
 
 MCP server for fcc-ecfs
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1361+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1395+ live data sources.
 
 ## Tools
 
@@ -27,7 +27,7 @@ Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 }
 ```
 
-Or connect to the full Pipeworx gateway for access to all 1361+ data sources:
+Or connect to the full Pipeworx gateway for access to all 1395+ data sources:
 
 ```json
 {
