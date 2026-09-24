@@ -1,14 +1,14 @@
 # mcp-fcc-ecfs
 
-MCP server for Fcc Ecfs
+MCP server for fcc-ecfs
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1476+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1679+ live data sources.
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `ecfs_search_filings` | Search FCC ECFS filings using the public API full-text index. Returns filer/author, proceeding, submission type, dates, and official document links. Search matches are filings in the public record, not FCC findings or endorsements. |
+| `ecfs_search_filings` | Search FCC ECFS filings using the public API. Use filer to list filings submitted BY a specific company (exact name match); use query for full-text search across all filings. Returns filer/author, proceeding, submission type, dates, and official document links. Search matches are filings in the public record, not FCC findings or endorsements. |
 | `ecfs_docket_filings` | List FCC ECFS filings in an exact proceeding/docket, newest first, including documents and parties. A filing reflects the submitter’s position and is not an FCC decision. |
 | `ecfs_filing_detail` | Retrieve one FCC ECFS filing by submission ID with all public proceedings, filers, authors, law firms, status, and official document/attachment URLs. |
 | `ecfs_search_proceedings` | Search FCC ECFS proceedings/dockets by exact number or public API query and return descriptions, bureau, dates, and docket links. |
@@ -57,9 +57,45 @@ directly, instead of just this one's:
 }
 ```
 
-Both URLs reach the same gateway and the same 1476+ data sources. The
+Both URLs reach the same gateway and the same 1679+ data sources. The
 only difference is which pack's tools are listed **directly**; `ask_pipeworx`
 reaches all of them from either one.
+
+## No MCP client? Call it over HTTP
+
+```bash
+curl -X POST https://gateway.pipeworx.io/v1/tools/ecfs_search_filings \
+  -H 'Content-Type: application/json' \
+  -d '{"filer":"T-Mobile USA, Inc.","limit":10}'
+```
+
+No account needed for the first calls. Inspect any tool: `GET https://gateway.pipeworx.io/v1/tools/ecfs_search_filings`. Find one: `POST https://gateway.pipeworx.io/v1/tools/search_packs` with `{"query":"..."}`.
+
+## Standalone (no gateway account)
+
+This package also runs as a local stdio MCP server — no Pipeworx account, no
+gateway round-trip:
+
+```json
+{
+  "mcpServers": {
+    "fcc-ecfs": {
+      "command": "npx",
+      "args": ["-y", "@pipeworx/mcp-fcc-ecfs"]
+    }
+  }
+}
+```
+
+Or run it directly to confirm it starts:
+
+```bash
+npx -y @pipeworx/mcp-fcc-ecfs
+```
+
+It speaks MCP over stdin/stdout and answers `initialize`/`tools/list`/`tools/call`
+for **only** this pack's tools — none of the shared meta-tools the gateway
+connection above adds. Same source, same tools, no ask_pipeworx routing.
 
 ## Using with ask_pipeworx
 
@@ -80,13 +116,3 @@ The gateway picks the right tool and fills the arguments automatically.
 ## License
 
 MIT
-
-## No MCP client? Call it over HTTP
-
-```bash
-curl -X POST https://gateway.pipeworx.io/v1/tools/ecfs_search_filings \
-  -H 'Content-Type: application/json' \
-  -d '{"filer":"T-Mobile USA, Inc.","limit":10}'
-```
-
-No account needed for the first calls. Inspect any tool: `GET https://gateway.pipeworx.io/v1/tools/ecfs_search_filings`. Find one: `POST https://gateway.pipeworx.io/v1/tools/search_packs` with `{"query":"..."}`.
