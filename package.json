@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-fcc-ecfs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "MCP server for fcc-ecfs",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-b919a8d5417d75a7d719935285adb06087a0420bdeb0de67ba277a6b9fbc151a",
-    "sourceCommit": "76aa8f5d9b5dc2f665563030647c68e661478864"
+    "sourceHash": "v1-65f09174e8557d693d4f9f91b2ac06c62521e3b00680c03c4befdb07f6b48756",
+    "sourceCommit": "91681e9a4a137fa0051d58e32f38c64b6334af5c"
   }
 }
