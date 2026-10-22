@@ -1,7 +1,7 @@
 {
   "name": "@pipeworx/mcp-fcc-ecfs",
-  "version": "0.1.5",
-  "description": "MCP server for fcc-ecfs",
+  "version": "0.1.6",
+  "description": "FCC Electronic Comment Filing System public search and retrieval.",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-65f09174e8557d693d4f9f91b2ac06c62521e3b00680c03c4befdb07f6b48756",
-    "sourceCommit": "91681e9a4a137fa0051d58e32f38c64b6334af5c"
+    "sourceHash": "v1-7d709580bf57ef3cbb11ba147d1f6551a4c2375b711f3ab19c9ea1d6f1076b83",
+    "sourceCommit": "712a5e0171ea24483214329d0cd7efdfd9b80352"
   }
 }
