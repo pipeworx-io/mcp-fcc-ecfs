@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-fcc-ecfs",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "FCC Electronic Comment Filing System public search and retrieval.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-7d709580bf57ef3cbb11ba147d1f6551a4c2375b711f3ab19c9ea1d6f1076b83",
-    "sourceCommit": "712a5e0171ea24483214329d0cd7efdfd9b80352"
+    "sourceHash": "v1-02e743f515a34f8b607a57c394f58c85662e4a826bc41cef28227374cfbcaa36",
+    "sourceCommit": "722087a9bda73f85942e8f6bbfd598544cb0d490"
   }
 }
