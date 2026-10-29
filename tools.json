@@ -1,0 +1,198 @@
+[
+  {
+    "name": "ecfs_search_filings",
+    "description": "Search FCC ECFS filings using the public API. Use filer to list filings submitted BY a specific company (exact name match); use query for full-text search across all filings. Returns filer/author, proceeding, submission type, dates, and official document links. Search matches are filings in the public record, not FCC findings or endorsements.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Full-text search across all ECFS filings — matches ANY mention of the term, not just filings BY that party."
+        },
+        "filer": {
+          "type": "string",
+          "description": "Filter to filings submitted BY this exact company or person name (e.g. \"T-Mobile USA, Inc.\"). Use instead of query when searching for a specific filer's submissions."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Results (1-100, default 25)."
+        },
+        "offset": {
+          "type": "number",
+          "description": "Pagination offset (default 0)."
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Optional api.data.gov key for higher limits; defaults to DEMO_KEY."
+        }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "returned": {
+          "type": "number"
+        },
+        "filings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "returned",
+        "filings",
+        "source"
+      ]
+    }
+  },
+  {
+    "name": "ecfs_docket_filings",
+    "description": "List FCC ECFS filings in an exact proceeding/docket, newest first, including documents and parties. A filing reflects the submitter’s position and is not an FCC decision.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "proceeding": {
+          "type": "string",
+          "description": "Exact docket/proceeding number, e.g. 11-42."
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Optional api.data.gov key for higher limits; defaults to DEMO_KEY."
+        }
+      },
+      "required": [
+        "proceeding"
+      ]
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "returned": {
+          "type": "number"
+        },
+        "filings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "returned",
+        "filings",
+        "source"
+      ]
+    }
+  },
+  {
+    "name": "ecfs_filing_detail",
+    "description": "Retrieve one FCC ECFS filing by submission ID with all public proceedings, filers, authors, law firms, status, and official document/attachment URLs.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "submission_id": {
+          "type": "string"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Optional api.data.gov key for higher limits; defaults to DEMO_KEY."
+        }
+      },
+      "required": [
+        "submission_id"
+      ]
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "submission_id": {
+          "type": "string"
+        },
+        "proceedings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "submission_id",
+        "proceedings",
+        "documents",
+        "source_url"
+      ]
+    }
+  },
+  {
+    "name": "ecfs_search_proceedings",
+    "description": "Search FCC ECFS proceedings/dockets by exact number or public API query and return descriptions, bureau, dates, and docket links.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "proceeding": {
+          "type": "string",
+          "description": "Exact proceeding number."
+        },
+        "query": {
+          "type": "string",
+          "description": "Optional proceeding search text."
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Optional api.data.gov key for higher limits; defaults to DEMO_KEY."
+        }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "returned": {
+          "type": "number"
+        },
+        "proceedings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "returned",
+        "proceedings",
+        "source"
+      ]
+    }
+  }
+]

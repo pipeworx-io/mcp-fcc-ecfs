@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-fcc-ecfs",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "FCC Electronic Comment Filing System public search and retrieval.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-fcc-ecfs": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "fcc-ecfs"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-fcc-ecfs.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/fcc-ecfs",
   "pipeworx": {
-    "sourceHash": "v1-02e743f515a34f8b607a57c394f58c85662e4a826bc41cef28227374cfbcaa36",
-    "sourceCommit": "722087a9bda73f85942e8f6bbfd598544cb0d490"
+    "mode": "gateway",
+    "slug": "fcc-ecfs",
+    "gatewaySlug": "fcc-ecfs",
+    "sourceHash": "v1-be78e40460f2d238c16fe4c30e3a0c9425e0d66f3537ca31dd731506aa8c9c89",
+    "sourceCommit": "bb047243cf27f32453103de186b8e6a8b6a1ce79"
   }
 }
