@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-fcc-ecfs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "FCC Electronic Comment Filing System public search and retrieval.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "fcc-ecfs",
     "gatewaySlug": "fcc-ecfs",
-    "sourceHash": "v1-be78e40460f2d238c16fe4c30e3a0c9425e0d66f3537ca31dd731506aa8c9c89",
-    "sourceCommit": "bb047243cf27f32453103de186b8e6a8b6a1ce79"
+    "sourceHash": "v1-2a64d19c4ea0f1dfef41e2038a91338ff5a6388d21a6b551a9c3ff7d20067c82",
+    "sourceCommit": "d35e32c1ffe988e24d391dedb35666387fd2b3d6"
   }
 }
